@@ -370,7 +370,7 @@ input {
 .avatars {
   display: flex;
   position: relative;
-  gap: -10px;
+  gap: -20px;
 }
 
 .avatars img {
@@ -378,7 +378,9 @@ input {
   height: 50px;
   border-radius: 50%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
 }
+
 
 .more-avatars {
   width: 50px;
@@ -413,7 +415,7 @@ input {
   background: var(--bg-color);
   z-index: 1;
 }
-
+  
 .image-cutout img {
   position: relative;
   top: 10px;
@@ -451,6 +453,7 @@ input {
   border-radius: 50%;
   box-shadow: 10px 10px 0 var(--bg-color);
   z-index: 1;
+  overflow: hidden;
 }
 
 .card-text::after {
@@ -463,6 +466,7 @@ input {
   background: transparent;
   border-radius: 50%;
   box-shadow: 10px 10px 0 var(--bg-color);
+  overflow: hidden;
 }
 
 .buy-now-btn {
@@ -1094,6 +1098,28 @@ input {
   font-weight: bold;
   color: #333;
 }
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.page-button.active {
+  background-color: #333;
+  color: white;
+  border-radius: 5px;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 
 /* Testimonials Section */
 .testimonials {
@@ -1213,6 +1239,11 @@ input {
 
 /* Footer */
 .footer {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-between;
+  
   background-color: #1a1b36;
   color: #ffffff;
   padding: 20px 40px;
@@ -1222,16 +1253,15 @@ input {
 .footer-content {
   display: flex;
   justify-content: center;
-  align-self: center;
-  flex-wrap: nowrap;
-  max-width: 1400px;
-  margin: 0 auto;
+  align-items:flex-start;
+ 
 }
 
 .footer-column {
   flex: 1;
   min-width: 205px;
   margin: 20px;
+
 }
 
 .company-info h3 {
