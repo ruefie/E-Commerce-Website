@@ -1,6 +1,6 @@
 
 // document.addEventListener("DOMContentLoaded", function () {
-const products = [
+let products = [
  
   {
     id: 1,
@@ -217,20 +217,27 @@ function setupPagination() {
   pagination.appendChild(nextButton);
 }
 
-function sortProducts(criteria) {
-  if (criteria === "nameAsc") {
-    products.sort((a, b) => a.name.localeCompare(b.name));
-  } else if (criteria === "nameDesc") {
-    products.sort((a, b) => b.name.localeCompare(a.name));
-  } else if (criteria === "priceAsc") {
-    products.sort((a, b) => a.price -b.price);
-  } else if (criteria === "priceDesc") {
-    products.sort((a, b) => b.price - a.price);
+  // Copy of original products order for default sorting
+  const originalProducts = [...products];
+  function sortProducts(criteria) {
+    if (criteria === "default") {
+      products = [...originalProducts];
+    } else if (criteria === "nameAsc") {
+      products.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (criteria === "nameDesc") {
+      products.sort((a, b) => b.name.localeCompare(a.name));
+    } else if (criteria === "priceAsc") {
+      products.sort((a, b) => a.price - b.price);
+    } else if (criteria === "priceDesc") {
+      products.sort((a, b) => b.price - a.price);
+    }
+
+    currentPage = 1; 
+    displayProducts(); 
+    setupPagination(); 
   }
-  currentPage = 1; 
-  displayProducts(); 
-  setupPagination(); 
-}
+
+
 
 
 document.getElementById("filter").addEventListener("change", (e) => {
@@ -343,7 +350,7 @@ document.getElementById("close-modal").addEventListener("click", () => {
 
 
 // Close cart modal when clicking outside of it
-window.addEventListener("click", (e) => {
+document.addEventListener("click", (e) => {
   if (e.target.id === "cart-modal") {
     document.getElementById("cart-modal").classList.remove("active");
   }
