@@ -119,6 +119,106 @@ body {
   color: var(--link-color);
 }
 
+
+/* Modal base styling */
+/* Position the modal dropdown under the cart icon */
+#cart-modal {
+  position: absolute;
+  top: 50px; /* Adjust to fit just below the cart icon */
+  right: 0; /* Align to the right under the cart icon */
+  width: 300px; /* Set a fixed width for the modal */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  display: none; /* Initially hidden */
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+
+/* Display the modal when it has the active class */
+#cart-modal.active {
+  display: block;
+}
+
+/* Style the modal content padding */
+.modal-content {
+  padding: 20px;
+}
+
+/* Style for cart items container */
+#cart-items {
+  max-height: 200px; /* Limit height and make scrollable */
+  overflow-y: auto;
+  margin-bottom: 15px;
+}
+
+/* Style for each item in the cart */
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* Style the cart item image */
+.cart-item img.cart-item-image {
+  width: 50px; /* Smaller size for image */
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+/* Style the product info beside the image */
+.cart-item-info {
+  flex-grow: 1;
+}
+
+.cart-item-info h4 {
+  font-size: 14px;
+  margin: 0;
+}
+
+.cart-item-info p {
+  font-size: 12px;
+  margin: 4px 0;
+}
+
+/* Cart summary styling */
+#cart-summary {
+  padding-top: 10px;
+  border-top: 1px solid #f0f0f0;
+  text-align: right;
+}
+
+#cart-summary p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+/* Checkout button styling */
+#checkout-btn {
+  background-color: #2176FF;
+  color: #fff;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+#checkout-btn:hover {
+  background-color: #1a5fcc;
+}
+
+.close-modal{
+  cursor: pointer;
+  font-size: 25px;
+}
+
+
 /* Light and Dark Mode Toggle Switch styles */
 input {
   font:
@@ -1098,6 +1198,17 @@ input {
   font-weight: bold;
   color: #333;
 }
+
+.filter-dropdown {
+  margin: 10px 0;
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+
 .pagination {
   display: flex;
   justify-content: center;

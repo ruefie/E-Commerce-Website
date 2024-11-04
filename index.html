@@ -40,7 +40,21 @@
 
           <i class="fa-solid fa-user"></i>
           <i class="fa-solid fa-heart"></i>
-          <i class="fa-solid fa-cart-shopping"></i>
+          <div id="cart-icon">
+            <i class="fa fa-cart-shopping"></i><span id="cart-count">0</span>
+          </div>
+        </div>
+        <div id="cart-modal" class="modal">
+          <div class="modal-content">
+            <span id="close-modal" class="close-modal">&times;</span> <!-- Close Button -->
+            <h2>Your Cart</h2>
+            <div id="cart-items"></div> <!-- Cart items display -->
+            <div id="cart-summary">
+              <p>Total Items: <span id="total-items">0</span></p>
+              <p>Total Price: $<span id="total-price">0.00</span></p>
+              <button id="checkout-btn">Proceed to Checkout</button>
+            </div>
+          </div>
         </div>
         <label for="theme" class="theme">
           <!-- <span>Light</span> -->
@@ -325,13 +339,20 @@
           </p>
         </div>
 
-        <div class="filter-buttons">
-          <button class="filter-btn">Women</button>
-          <button class="filter-btn">Men</button>
-          <button class="filter-btn">Kids</button>
-          <button class="filter-btn">Babies</button>
+        <div id="filter-buttons"class="filter-buttons">
+          <button class="filter-btn" data-category="Women" >Women</button>
+          <button class="filter-btn" data-category="Men" >Men</button>
+          <button class="filter-btn" data-category="Kids" >Kids</button>
+          <button class="filter-btn" data-category="Babies" >Babies</button>
+          <button class="filter-btn" data-category="" >All Products</button>
         </div>
-
+        <select id="filter" class="filter-dropdown">
+          <option value="">Sort by</option>
+          <option value="nameAsc">Name Ascending</option>
+          <option value="nameDesc">Name Descending</option>
+          <option value="priceAsc">Price Ascending</option>
+          <option value="priceDesc">Price Descending</option>
+        </select>
         <div class="product-grid" id="productGrid">
           <!-- Product 1 -->
           <!-- <div class="product-card">
