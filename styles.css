@@ -121,18 +121,17 @@ body {
 
 
 /* Modal base styling */
-/* Position the modal dropdown under the cart icon */
 #cart-modal {
   position: absolute;
-  top: 50px; /* Adjust to fit just below the cart icon */
-  right: 0; /* Align to the right under the cart icon */
-  width: 300px; /* Set a fixed width for the modal */
+  top: 80px; 
+  right: 0;
+  width: 400px; 
   background-color: #fff;
   border: 1px solid #ccc;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  display: none; /* Initially hidden */
-  z-index: 1000; /* Ensure it appears above other elements */
+  display: none; 
+  z-index: 1000;
 }
 
 /* Display the modal when it has the active class */
@@ -155,16 +154,17 @@ body {
 /* Style for each item in the cart */
 .cart-item {
   display: flex;
-  align-items: center;
+  align-items:flex-start;
   margin-bottom: 10px;
+  gap: 30px;
   padding: 5px;
   border-bottom: 1px solid #f0f0f0;
 }
 
 /* Style the cart item image */
 .cart-item img.cart-item-image {
-  width: 50px; /* Smaller size for image */
-  height: 50px;
+  width: 70px; 
+  height: 70px;
   object-fit: cover;
   border-radius: 4px;
   margin-right: 10px;
@@ -216,6 +216,7 @@ body {
 .close-modal{
   cursor: pointer;
   font-size: 25px;
+
 }
 
 
@@ -1133,6 +1134,10 @@ input {
   margin: 0;
   row-gap: 20px;
   column-gap: 20px;
+}
+
+.no-products-message{  
+  padding: 10px;
 }
 
 .product-card {
