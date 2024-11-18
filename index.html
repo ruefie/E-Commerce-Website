@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,7 +16,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-   
   </head>
   <body>
     <header>
@@ -34,54 +33,46 @@
         </ul>
         <div class="nav-right">
           <div class="search-container">
-            <input type="text" placeholder="Search..." class="search-input" />
+            <input
+              type="text"
+              placeholder="Search..."
+              class="search-input"
+              id="search-input"
+            />
             <i class="fas fa-search search-icon" class="search-icon"></i>
+            <div id="search-modal" class="search-modal"></div>
           </div>
-
           <i class="fa-solid fa-user"></i>
           <i class="fa-solid fa-heart"></i>
           <div id="cart-icon">
             <i class="fa fa-cart-shopping"></i><span id="cart-count">0</span>
           </div>
         </div>
+
+        <!-- Cart Modal -->
         <div id="cart-modal" class="modal">
           <div class="modal-content">
-            <span id="close-modal" class="close-modal">&times;</span> 
+            <span id="close-modal" class="close-modal">&times;</span>
             <h2>Your Cart</h2>
-            <div id="cart-items"></div> <!-- Cart items display -->
+            <div id="cart-items"></div>
+            <!-- Cart items display -->
             <div id="cart-summary">
               <p>Total Items: <span id="total-items">0</span></p>
               <p>Total Price: $<span id="total-price">0.00</span></p>
-              <button id="checkout-btn">Proceed to Checkout</button>
+              <div class="cart-buttons">
+                <button id="shopping-btn">Continue Shopping</button>
+                <button id="checkout-btn">Proceed to Checkout</button>
+              </div>
             </div>
           </div>
+          <canvas id="confetti"></canvas>
         </div>
-        <label for="theme" class="theme">
-          <!-- <span>Light</span> -->
-          <span class="theme_toggle-wrap">
-            <input
-              type="checkbox"
-              class="theme_toggle"
-              id="theme"
-              role="switch"
-              name="theme"
-              value="dark"
-            />
-            <span class="theme_fill"></span>
-            <span class="theme_icon">
-              <span class="theme_icon-part"></span>
-              <span class="theme_icon-part"></span>
-              <span class="theme_icon-part"></span>
-              <span class="theme_icon-part"></span>
-              <span class="theme_icon-part"></span>
-              <span class="theme_icon-part"></span>
-              <span class="theme_icon-part"></span>
-              <span class="theme_icon-part"></span>
-              <span class="theme_icon-part"></span>
-            </span>
-          </span>
-          <!-- <span>Dark</span> -->
-        </label>
+        <div class="theme-toggle" >
+          <button id="theme-switch">
+          <img src="./images/night-mode.png" alt="Dark Mode" />
+          <img src="./images/brightness.png" alt="Light Mode" />
+          </button>
+        </div>
       </nav>
       <hr />
     </header>
@@ -100,7 +91,7 @@
                 />-Friendly</span
               >
             </span>
-            products <br /> 
+            products <br />
             and services
           </h1>
           <button class="contact-btn">Contact Us</button>
@@ -339,12 +330,12 @@
           </p>
         </div>
 
-        <div id="filter-buttons"class="filter-buttons">
-          <button class="filter-btn" data-category="Women" >Women</button>
-          <button class="filter-btn" data-category="Men" >Men</button>
-          <button class="filter-btn" data-category="Kids" >Kids</button>
-          <button class="filter-btn" data-category="Babies" >Babies</button>
-          <button class="filter-btn" data-category="" >All Products</button>
+        <div id="filter-buttons" class="filter-buttons">
+          <button class="filter-btn" data-category="Women">Women</button>
+          <button class="filter-btn" data-category="Men">Men</button>
+          <button class="filter-btn" data-category="Kids">Kids</button>
+          <button class="filter-btn" data-category="Babies">Babies</button>
+          <button class="filter-btn" data-category="">All Products</button>
         </div>
         <select id="filter" class="filter-dropdown">
           <option value="default">Sort by</option>
@@ -353,119 +344,9 @@
           <option value="priceAsc">Price Ascending</option>
           <option value="priceDesc">Price Descending</option>
         </select>
-        
-        <div class="product-grid" id="productGrid">
-          <!-- Product 1 -->
-          <!-- <div class="product-card">
-            <div class="image-container">
-              <img src="images/shoes.jpg" alt="shoes" />
-            </div>
-            <div class="product-info">
-              <div class="product-name">
-                <h3>Adidas Samba OG</h3>
-                <i class="fa-regular fa-heart"></i>
-              </div>
-              <div class="product-price-rating">
-                <span class="price">$179.00</span>
-                <button class="filter-btn">Add to cart</button>
-              </div>
-            </div>
-          </div> -->
-
-          <!-- Product 2 -->
-          <!-- <div class="product-card">
-            <div class="image-container">
-              <img
-                src="images/jersey-joggers-kids.webp"
-                alt="jersey-joggers-kids"
-              />
-            </div>
-            <div class="product-info">
-              <div class="product-name">
-                <h3>Kids Jersey Joggers</h3>
-                <i class="fa-regular fa-heart"></i>
-              </div>
-              <div class="product-price-rating">
-                <span class="price">$19.00</span>
-                <button class="filter-btn">Add to cart</button>
-              </div>
-            </div>
-          </div> -->
-
-          <!-- Product 3 -->
-          <!-- <div class="product-card">
-            <div class="image-container">
-              <img
-                src="images/coach-rowan-satchel-bag.png"
-                alt="coach-rowan-satchel-bag"
-              />
-            </div>
-            <div class="product-info">
-              <div class="product-name">
-                <h3>Coach Rowan Satchel</h3>
-                <i class="fa-regular fa-heart"></i>
-              </div>
-              <div class="product-price-rating">
-                <span class="price">$379.00</span>
-                <button class="filter-btn">Add to cart</button>
-              </div>
-            </div>
-          </div> -->
-
-          <!-- Product 4 -->
-          <!-- <div class="product-card">
-            <div class="image-container">
-              <img
-                src="images/men-casual-blazer.webp"
-                alt="men-casual-blazer"
-              />
-            </div>
-            <div class="product-info">
-              <div class="product-name">
-                <h3>Men Casual Blazer</h3>
-                <i class="fa-regular fa-heart"></i>
-              </div>
-              <div class="product-price-rating">
-                <span class="price">$279.00</span>
-                <button class="filter-btn">Add to cart</button>
-              </div>
-            </div>
-          </div> -->
-
-          <!-- Product 5 -->
-          <!-- <div class="product-card">
-            <div class="image-container">
-              <img src="images/women-cape.png" alt="women-cape" />
-            </div>
-            <div class="product-info">
-              <div class="product-name">
-                <h3>Women Cape Brown</h3>
-                <i class="fa-regular fa-heart"></i>
-              </div>
-              <div class="product-price-rating">
-                <span class="price">$109.00</span>
-                <button class="filter-btn">Add to cart</button>
-              </div>
-            </div>
-          </div> -->
-
-          <!-- Product 6 -->
-          <!-- <div class="product-card">
-            <div class="image-container">
-              <img src="images/women-scarf.webp" alt="women-scarf" />
-            </div>
-            <div class="product-info">
-              <div class="product-name">
-                <h3>Women Scarf</h3>
-                <i class="fa-regular fa-heart"></i>
-              </div>
-              <div class="product-price-rating">
-                <span class="price">$59.00</span>
-                <button class="filter-btn">Add to cart</button>
-              </div>
-            </div>
-          </div> -->
-        </div>
+        <!-- Product Grid -->
+        <div class="product-grid" id="productGrid"></div>
+        <!-- Pagination -->
         <div class="pagination" id="pagination"></div>
       </section>
 
@@ -631,6 +512,7 @@
       </div>
 
       <!-- Bottom Footer Section -->
+
       <div class="footer-bottom">
         <p>&copy; 2024 Meher | All rights reserved</p>
         <ul class="footer-links">
@@ -643,8 +525,9 @@
         </div>
       </div>
     </footer>
-    <script src="products.js"></script>
-    <script src="script.js" ></script>
-  </body>
+    <!-- <script type="module" src="products.js"></script> -->
 
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <script type="module" src="script.js"></script>
+  </body>
 </html>
